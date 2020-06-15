@@ -1,6 +1,8 @@
 const pairs = [
-    {word1: "clearly", word2: "confused"},
-    {word1: "act", word2: "naturally"},
-    {word1: "deafening", word2: "silence"},
-    {word1: "definitely", word2: "maybe"}
+    { 1: 'clearly confused' },
+    { 2: 'act naturally' },
+    { 3: 'deafening silence' },
+    { 4: 'definitely maybe' },
+    { 5: 'proud humility' },
+    { 6: 'cold fire' },
 ]

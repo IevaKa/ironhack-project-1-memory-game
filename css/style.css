@@ -13,7 +13,11 @@ body {
 .card {
     height: 200px;
     width: 100px;
-    background-color: black;
     border: 2px solid white;
-    color: white;
+    color: black;
+    background-color: black;
+}
+
+.opened {
+    background-color: white;
 }
