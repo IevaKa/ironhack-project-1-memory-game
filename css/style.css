@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+    margin: 0 auto;
+}
+
+#all-cards {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    height: 200px;
+    width: 100px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+}
