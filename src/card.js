@@ -4,5 +4,6 @@ class Card {
         this.state = 0;
         this.pairNo;
         this.randomNo = Math.random();
+        this.scored = false;
     }
 }

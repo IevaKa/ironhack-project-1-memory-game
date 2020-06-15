@@ -21,3 +21,7 @@ body {
 .opened {
     background-color: white;
 }
+
+.matched {
+    background-color: white;
+}
