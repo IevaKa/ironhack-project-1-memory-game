@@ -1,5 +1,4 @@
 body {
-    background-color: black;
     margin: 0 auto;
     color: white;
     font-size: 2rem;
@@ -15,18 +14,19 @@ h1 {
     text-align: center;
     letter-spacing: 5px;
     margin: 37px;
+    padding-right: 400px;
 }
 
 #container {
     display: flex;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin: 0 auto;
     width: 90%;
 
 }
 
 #info {
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
     width: 20%
   
 }
@@ -53,26 +53,53 @@ h1 {
     width: 80%;
     flex-wrap: wrap;
     margin-left: 4%;
-    border: 2px solid green;
+}
 
+.card-container {
+    position: relative;
+    width: 13%;
+    height: 260px;
+    margin: 0 3% 1% 0;
 }
 
 .card {
-    height: 260px;
-    width: 13%;
-    border: 5px solid white;
-    color: black;
-    background-color: black;
-    margin: 0 3% 1% 0;
-    /* box-sizing: border-box; */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.front img {
+    height: 100%;
+    width: 100%; 
+    border-radius: 25px;  
+}
+
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: white;
+    color:black;
+    transform: rotateY(180deg);
+    border-radius: 25px;  
 }
 
 .opened {
-    background-color: white;
+    transform: rotateY(180deg); 
 }
 
 .matched {
-    background-color: white;
+    transform: rotateY(180deg); 
 }
 
 .active {

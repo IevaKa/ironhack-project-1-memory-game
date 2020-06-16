@@ -36,7 +36,12 @@ class Game {
         this.cards.sort((a, b) => a.randomNo - b.randomNo); 
         let divCards = '';
         this.cards.forEach(function(card) {
-            divCards += `<div class = "card">${card.word}</div>`;
+            divCards += `<div class = "card-container">
+            <div class = "card">
+                <div class = "front"><img src="assets/card-cover.jpg"></div>
+                <div class = "back">${card.word}</div>
+            </div>
+            </div>`;
         });
         document.querySelector('#all-cards').innerHTML = divCards; 
         this.cardElements = document.querySelectorAll('.card');
