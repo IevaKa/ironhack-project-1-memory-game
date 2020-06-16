@@ -1,21 +1,70 @@
 body {
     background-color: black;
     margin: 0 auto;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 3px;
+    background-image: url('../assets/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    letter-spacing: 5px;
+    margin: 37px;
+}
+
+#container {
+    display: flex;
+    border: 2px solid red;
+    margin: 0 auto;
+    width: 90%;
+
+}
+
+#info {
+    border: 2px solid pink;
+    width: 20%
+  
+}
+
+#levels {
+    display: flex;
+}
+
+#levels ul {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+
+}
+
+#levels li {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: 700;
 }
 
 #all-cards {
     display: flex;
     width: 80%;
     flex-wrap: wrap;
-    justify-content: space-around;
+    margin-left: 4%;
+    border: 2px solid green;
+
 }
 
 .card {
-    height: 200px;
-    width: 100px;
-    border: 2px solid white;
+    height: 260px;
+    width: 13%;
+    border: 5px solid white;
     color: black;
     background-color: black;
+    margin: 0 3% 1% 0;
+    /* box-sizing: border-box; */
 }
 
 .opened {
@@ -24,4 +73,10 @@ body {
 
 .matched {
     background-color: white;
+}
+
+.active {
+    color: olivedrab;
+    background-color: white;
+    border: none;
 }

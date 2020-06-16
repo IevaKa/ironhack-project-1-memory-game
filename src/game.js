@@ -1,7 +1,7 @@
 class Game {
-    constructor() {
+    constructor(level) {
         this.cards = [];
-        this.pairsNo = 3;
+        this.pairsNo = level || 6;
         this.reset();
     }
 
@@ -20,6 +20,7 @@ class Game {
     // 1. Pick random 3 elements of the array
     // 2. Create Card objects, assign them the word, and pair number
     selectPairs() {
+        this.cards = [];
         // looping over the pairs in the game
         for(let p = 0; p < this.pairsNo; p++) {
             // looping over a pair
@@ -41,25 +42,3 @@ class Game {
         document.querySelector('#all-cards').innerHTML = divCards; 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

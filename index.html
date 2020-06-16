@@ -3,15 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <title>Document</title>
     </head>
     <body>
-       <div id = "all-cards">
-       </div> 
-       <script src = "src/content.js"></script>
-       <script src = "src/card.js"></script>
-       <script src = "src/game.js"></script>
-       <script src = "src/main.js"></script>
+        <h1>Oxymoron Memory Game</h1>
+        <div id = container>
+            <div id = "all-cards"></div>
+            <div id = "info">
+                <div id = "levels">
+                    <h3>Levels: </h3>
+                    <ul>
+                        <li class = 'active' value = "6">1</li>
+                        <li value = "8">2</li>
+                        <li value = "12">3</li>
+                    </ul>
+                </div>
+                <div id = "timer">Time left: </div>
+                <div id = "scores">Score: </div>
+                <div id = "phrases"></div>
+            </div>
+        </div> 
+        <script src = "src/content.js"></script>
+        <script src = "src/card.js"></script>
+        <script src = "src/game.js"></script>
+        <script src = "src/main.js"></script>
     </body>
 </html>
