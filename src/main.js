@@ -1,38 +1,36 @@
 let game = new Game();
-let cardElements = document.querySelectorAll('.card');
+let level = 6;
+game.reset(level);
 let levels = document.querySelectorAll('#levels li');
 let openedCards = [];
 
-openCard();
+play()
 
-// for(let i = 0; i < levels.length; i++) {
-//     levels[i].onclick = function () {
-//         setLevel();
-//         game = new Game(level);
-//     }
-// }
-
-// function setLevel() {
-//     levels.forEach(level => level.addEventListener('click', e => {
-//         levels.forEach(level => level.classList.remove('active'));
-//         e.currentTarget.classList.add('active')
-//         level = e.currentTarget.value;
-//     }));
-// }
+levels.forEach(level => level.addEventListener('click', e => {
+    levels.forEach(level => level.classList.remove('active'));
+    e.currentTarget.classList.add('active')
+    level = e.currentTarget.value;
+    game.reset(level);
+    play();
+}));
 
 
-for(let i = 0; i < cardElements.length; i++) {
-    cardElements[i].onclick = function () {
-        openCard();
-        game.cards[i].state = 1;
-        let openWords = openedCards.map(e => e.word);
-        if(!openWords.includes(game.cards[i].word)) openedCards.push(game.cards[i]);
-        ifMatched();
+function play() {
+    openCard();
+    for(let i = 0; i < game.cardElements.length; i++) {
+        game.cardElements[i].onclick = function () {
+            openCard();
+            game.cards[i].state = 1;
+            let openWords = openedCards.map(e => e.word);
+            if(!openWords.includes(game.cards[i].word)) openedCards.push(game.cards[i]);
+            ifMatched();
+        }
     }
 }
 
+
 function openCard() {
-    cardElements.forEach(card => card.addEventListener('click', e => {
+    game.cardElements.forEach(card => card.addEventListener('click', e => {
         if(openedCards.length < 2) e.currentTarget.classList.add('opened')
     }));
 }
@@ -44,7 +42,7 @@ function ifMatched() {
             openedCards = [];
         } else {
             setTimeout(function() { 
-                cardElements.forEach(e => e.classList.remove('opened'));
+                game.cardElements.forEach(e => e.classList.remove('opened'));
                 openedCards = [];
             }, 3000);
         }

@@ -1,13 +1,12 @@
 class Game {
-    constructor(level) {
+    constructor() {
         this.cards = [];
-        this.pairsNo = level || 6;
-        this.reset();
+        this.cardElements;
     }
 
-    reset() {
+    reset(level) {
         this.randomizePairs();
-        this.selectPairs();
+        this.selectPairs(level);
         this.pushCardsToDom();    
     }
 
@@ -15,14 +14,14 @@ class Game {
         for(let i = 0; i < pairs.length; i++) {
             pairs[i].randomNo = Math.random();
         }
-        pairs.sort((a, b) => a.randomNo - b.randomNo).slice(0, this.pairsNo);
+        pairs.sort((a, b) => a.randomNo - b.randomNo).slice(0, level);
     }
     // 1. Pick random 3 elements of the array
     // 2. Create Card objects, assign them the word, and pair number
-    selectPairs() {
+    selectPairs(level) {
         this.cards = [];
         // looping over the pairs in the game
-        for(let p = 0; p < this.pairsNo; p++) {
+        for(let p = 0; p < level; p++) {
             // looping over a pair
             for(let i = 0; i < 2; i++) {
                 let card = new Card();
@@ -40,5 +39,6 @@ class Game {
             divCards += `<div class = "card">${card.word}</div>`;
         });
         document.querySelector('#all-cards').innerHTML = divCards; 
+        this.cardElements = document.querySelectorAll('.card');
     }
 }
