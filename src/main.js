@@ -44,7 +44,7 @@ function ifMatched() {
             setTimeout(function() { 
                 game.cardElements.forEach(e => e.classList.remove('opened'));
                 openedCards = [];
-            }, 3000);
+            }, 2000);
         }
    }
 }
