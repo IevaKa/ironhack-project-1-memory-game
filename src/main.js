@@ -4,26 +4,18 @@ game.reset(level);
 let levels = document.querySelectorAll('#levels li');
 let openedCards = [];
 
-// let timer = document.querySelector('#timer span').innerText.split(':');
-// let seconds = +timer[0]*60 + +timer[1]
-// console.log(seconds)
-
 play()
 
 levels.forEach(level => level.addEventListener('click', e => {
     levels.forEach(level => level.classList.remove('active'));
     e.currentTarget.classList.add('active')
     level = e.currentTarget.value;
-    // this resets the level value; 
-    //incorporate the timer function in a seperate function that depends on the level value 
-    // => Just write a timer function 
     game.reset(level);
     play();
 }));
-
+// %HOMEDRIVE%%HOMEPATH%
 
 function play() {
-    // condition if the current timer value => if its is null, show a prompt that the time is up
     openCard();
     for(let i = 0; i < game.cardElements.length; i++) {
         game.cardElements[i].onclick = function () {
@@ -56,3 +48,5 @@ function ifMatched() {
         }
    }
 }
+
+

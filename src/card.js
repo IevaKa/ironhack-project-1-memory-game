@@ -3,5 +3,6 @@ class Card {
         this.word;
         this.state = 0;
         this.pairNo;
-        this.randomNo = Math.random();    }
+        this.randomNo = Math.random();    
+    }
 }

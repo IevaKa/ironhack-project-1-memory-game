@@ -7,7 +7,8 @@ class Game {
     reset(level) {
         this.randomizePairs();
         this.selectPairs(level);
-        this.pushCardsToDom();    
+        this.pushCardsToDom();
+        this.setTime(level);    
     }
 
     randomizePairs() {
@@ -16,13 +17,10 @@ class Game {
         }
         pairs.sort((a, b) => a.randomNo - b.randomNo).slice(0, level);
     }
-    // 1. Pick random 3 elements of the array
-    // 2. Create Card objects, assign them the word, and pair number
+
     selectPairs(level) {
         this.cards = [];
-        // looping over the pairs in the game
         for(let p = 0; p < level; p++) {
-            // looping over a pair
             for(let i = 0; i < 2; i++) {
                 let card = new Card();
                 card.pairNo = Object.keys(pairs[p])[0];
@@ -31,7 +29,7 @@ class Game {
             }
         }
     } 
-    // 1. Sort cards array randomly, and manipulate DOM.
+
     pushCardsToDom() {   
         this.cards.sort((a, b) => a.randomNo - b.randomNo); 
         let divCards = '';
@@ -45,5 +43,34 @@ class Game {
         });
         document.querySelector('#all-cards').innerHTML = divCards; 
         this.cardElements = document.querySelectorAll('.card');
+    }
+
+    setTime(level) {
+        let timer = document.querySelector('#timer span');
+        let seconds;
+        if(level == 6) {
+            seconds = 60;
+        } else if(level == 8) {
+            seconds = 120;
+        } else {
+            seconds = 300;
+        }
+        let toTimeString = function(seconds) {
+            return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0].substring(3);
+            }
+        timer.innerText = toTimeString(seconds);
+        let setTimer = function() {
+            setInterval(function() {
+                seconds--;
+                if (seconds >= 0) {
+                    timer.innerText = toTimeString(seconds);
+                }
+                if (seconds === 0) {
+                    alert('Game Over');
+                    clearInterval(seconds);
+                }
+            }, 1000)
+        }
+        document.getElementById('all-cards').addEventListener('click', setTimer, {once: true});
     }
 }
