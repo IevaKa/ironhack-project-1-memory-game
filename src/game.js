@@ -1,3 +1,4 @@
+let mkt;
 class Game {
     constructor() {
         this.cards = [];
@@ -59,18 +60,26 @@ class Game {
             return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0].substring(3);
             }
         timer.innerText = toTimeString(seconds);
+        
         let setTimer = function() {
-            setInterval(function() {
+            console.log(document);
+            //console.log(mkt);
+
+            //clearInterval(mkt);
+           
+            mkt = setInterval(function() {
                 seconds--;
                 if (seconds >= 0) {
                     timer.innerText = toTimeString(seconds);
                 }
                 if (seconds === 0) {
                     alert('Game Over');
-                    clearInterval(seconds);
+                    clearInterval(mkt);
                 }
             }, 1000)
+
         }
         document.getElementById('all-cards').addEventListener('click', setTimer, {once: true});
+        document.getElementById('levels').addEventListener('click', clearInterval(mkt));
     }
 }

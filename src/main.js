@@ -13,14 +13,12 @@ levels.forEach(level => level.addEventListener('click', e => {
     game.reset(level);
     play();
 }));
-// %HOMEDRIVE%%HOMEPATH%
 
 function play() {
     openCard();
     for(let i = 0; i < game.cardElements.length; i++) {
         game.cardElements[i].onclick = function () {
             openCard();
-            game.cards[i].state = 1;
             let openWords = openedCards.map(e => e.word);
             if(!openWords.includes(game.cards[i].word)) openedCards.push(game.cards[i]);
             ifMatched();
