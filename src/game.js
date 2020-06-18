@@ -51,7 +51,7 @@ class Game {
                 timerDom.innerText = toTimeString(seconds);
             }
             if (seconds === 0) {
-                alert('Game Over');
+                alert.render('Game Over');
             }
         }, 1000);
     }

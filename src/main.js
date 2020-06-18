@@ -1,3 +1,4 @@
+let alert = new CustomAlert();
 let game = new Game();
 let level = 6;
 game.reset(level);
@@ -51,7 +52,8 @@ function ifMatched() {
             scoreDom.innerText = score;
             if(score == level) {
                 setTimeout(function(){ 
-                    alert("You win!"); 
+                    alert.render('You win!');
+                    //alert("You win!"); 
                     game.stopInterval();
                 }, 1000);            
             }

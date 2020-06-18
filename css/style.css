@@ -140,3 +140,45 @@ h1 {
 #scores span{
     font-weight: 700;
 }
+
+#dialogoverlay{
+	display: none;
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #FFF;
+	width: 100%;
+	z-index: 10;
+}
+#dialogbox{
+    display: none;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+	position: fixed;
+	border-radius: 25px; 
+    width:550px;
+    height: 200px;
+    z-index: 10;
+    font-size: 2rem;
+    border: 5px solid  #800020;
+    font-weight: 700;
+    background-image: url('../assets/alert_pic.jpg');
+    background-size: cover;
+}
+
+#dialogboxfoot {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%; 
+}
+
+#dialogboxfoot button {
+    padding: 10px 20px;
+    border-radius: 10px; 
+    background-color:  #800020;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
