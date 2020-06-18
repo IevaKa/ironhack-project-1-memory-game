@@ -29,11 +29,11 @@ class Game {
         }
     } 
 
-    pushCardsToDom() {   
+    pushCardsToDom(level) {   
         this.cards.sort((a, b) => a.randomNo - b.randomNo); 
         let divCards = '';
         this.cards.forEach(function(card) {
-            divCards += `<div class = "card-container">
+            divCards += `<div class = ${card.classCard}>
             <div class = "card">
                 <div class = "front"><img src="assets/card-cover.jpg"></div>
                 <div class = "back">${card.word}</div>

@@ -16,7 +16,8 @@ levels.forEach(lev => lev.addEventListener('click', e => {
     levels.forEach(level => level.classList.remove('active'));
     e.currentTarget.classList.add('active');
     level = e.currentTarget.value;
-    resetSeconds(level);
+    openedCards = [];
+    resetSecondsAndScore(level);
     game.stopInterval();
     game.reset(level);
     play();
@@ -67,11 +68,12 @@ function toTimeString() {
     return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0].substring(3);
 }
 
-function resetSeconds(level) {
+function resetSecondsAndScore(level) {
     if(level == 6) {
         seconds = 60;
     } else if(level == 8) {
         seconds = 120;
+        document.querySelector('#all-cards').setAttribute('style', 'margin-left: 10%;');
     } else {
         seconds = 300;
     }

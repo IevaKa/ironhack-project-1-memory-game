@@ -25,7 +25,7 @@ h1 {
 }
 
 #info {
-    width: 20%
+    width: 25%
   
 }
 
@@ -49,17 +49,33 @@ h1 {
 
 #all-cards {
     display: flex;
-    width: 80%;
+    width: 75%;
     flex-wrap: wrap;
     margin-left: 4%;
 }
 
-.card-container {
+.card-container-1 {
     position: relative;
-    width: 13%;
+    width: 20%;
+    height: 180px;
+    margin: 0 4% 1% 0;
+    font-size: 1.8rem;
+}
+
+
+.card-container-2 {
+    position: relative;
+    width: 15%;
     height: 130px;
-    margin: 0 3% 1% 0;
-    cursor: pointer;
+    margin: 0 4% 1% 3%;
+    font-size: 1.3rem;
+}
+
+.card-container-3 {
+    position: relative;
+    width: 14%;
+    height: 130px;
+    margin: 0 2% 1% 0;
 }
 
 .card {
@@ -68,6 +84,7 @@ h1 {
     width: 100%;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .front {
@@ -91,7 +108,6 @@ h1 {
     background-color: white;
     color: #800020;
     font-weight: 700;
-    font-size: 1.1rem;
     transform: rotateY(180deg);
     border-radius: 25px;  
     display: flex;
@@ -111,4 +127,16 @@ h1 {
     color: olivedrab;
     background-color: white;
     border: none;
+}
+
+#timer {
+    margin-bottom: 2%;
+}
+
+#timer span{
+    font-weight: 700;
+}
+
+#scores span{
+    font-weight: 700;
 }
