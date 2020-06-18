@@ -3,16 +3,18 @@ let level = 6;
 game.reset(level);
 let levels = document.querySelectorAll('#levels li');
 let timerDom = document.querySelector('#timer span');
+let scoreDom = document.querySelector('#scores span');
 let openedCards = [];
 let interval;
 let seconds = 60;
+let score = 0;
 
 play();
 timerDom.innerText = toTimeString(seconds);
 
-levels.forEach(level => level.addEventListener('click', e => {
+levels.forEach(lev => lev.addEventListener('click', e => {
     levels.forEach(level => level.classList.remove('active'));
-    e.currentTarget.classList.add('active')
+    e.currentTarget.classList.add('active');
     level = e.currentTarget.value;
     resetSeconds(level);
     game.stopInterval();
@@ -22,7 +24,6 @@ levels.forEach(level => level.addEventListener('click', e => {
 
 function play() {
     document.getElementById('all-cards').addEventListener("click", game.playInterval, {once: true});
-
     openCard();
     for(let i = 0; i < game.cardElements.length; i++) {
         game.cardElements[i].onclick = function () {
@@ -45,6 +46,14 @@ function ifMatched() {
         if(openedCards[0].pairNo === openedCards[1].pairNo) {
             document.querySelectorAll('.opened').forEach(e => e.classList.add('matched')); 
             openedCards = [];
+            score += 1;
+            scoreDom.innerText = score;
+            if(score == level) {
+                setTimeout(function(){ 
+                    alert("You win!"); 
+                    game.stopInterval();
+                }, 1000);            
+            }
         } else {
             setTimeout(function() { 
                 game.cardElements.forEach(e => e.classList.remove('opened'));
@@ -66,7 +75,8 @@ function resetSeconds(level) {
     } else {
         seconds = 300;
     }
-
     timerDom.innerText = toTimeString(seconds);
+    score = 0;
+    scoreDom.innerText = 0;
 }
 
