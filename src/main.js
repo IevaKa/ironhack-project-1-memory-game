@@ -2,19 +2,27 @@ let game = new Game();
 let level = 6;
 game.reset(level);
 let levels = document.querySelectorAll('#levels li');
+let timerDom = document.querySelector('#timer span');
 let openedCards = [];
+let interval;
+let seconds = 60;
 
-play()
+play();
+timerDom.innerText = toTimeString(seconds);
 
 levels.forEach(level => level.addEventListener('click', e => {
     levels.forEach(level => level.classList.remove('active'));
     e.currentTarget.classList.add('active')
     level = e.currentTarget.value;
+    resetSeconds(level);
+    game.stopInterval();
     game.reset(level);
     play();
 }));
 
 function play() {
+    document.getElementById('all-cards').addEventListener("click", game.playInterval, {once: true});
+
     openCard();
     for(let i = 0; i < game.cardElements.length; i++) {
         game.cardElements[i].onclick = function () {
@@ -25,7 +33,6 @@ function play() {
         }
     }
 }
-
 
 function openCard() {
     game.cardElements.forEach(card => card.addEventListener('click', e => {
@@ -47,4 +54,19 @@ function ifMatched() {
    }
 }
 
+function toTimeString() {
+    return (new Date(seconds * 1000)).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0].substring(3);
+}
+
+function resetSeconds(level) {
+    if(level == 6) {
+        seconds = 60;
+    } else if(level == 8) {
+        seconds = 120;
+    } else {
+        seconds = 300;
+    }
+
+    timerDom.innerText = toTimeString(seconds);
+}
 
